@@ -17,9 +17,9 @@ class Empregados {
     public Empregados( int horas, float salHora ) {
         this.horas = horas;
         this.salHora = salHora;
-        desconto=0.11;
-        calcBoth();
-        
+        desconto = 0.11;
+        calcBruto();
+        calcLiq();
     }
 
     public void calcBruto() { 
@@ -30,7 +30,7 @@ class Empregados {
         liquido = bruto * ( 1 - desconto);
     }    
     
-    double calcDesc() {
+    void calcDesc() {
         if (bruto <= 540)
             desconto = 0.11;
         else {
@@ -39,11 +39,11 @@ class Empregados {
             else
                 desconto = 0.2;
         }
-        return desconto;
     }
 
     public void calcBoth() {
         calcBruto();
+        calcDesc();
         calcLiq();
     }
 

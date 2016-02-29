@@ -31,9 +31,7 @@ class Empregado {
         int y = Integer.parseInt(scanner.nextLine());
         robertinho[0].setHoras(y);
         
-        robertinho[0].calcBruto();
-        robertinho[0].calcDesc();
-        robertinho[0].calcLiq();       
+        robertinho[0].calcBoth();  
         
         for (Empregados emp : robertinho)   {    
             emp.printData();
