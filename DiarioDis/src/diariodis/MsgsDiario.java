@@ -5,6 +5,8 @@
  */
 package diariodis;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Joao Pedro Rosa
@@ -12,12 +14,12 @@ package diariodis;
 
 public class MsgsDiario {
     
-    public static void setNota() {
-        System.out.println("Insira nota do aluno: ");
+    public static String setNota() {
+        return JOptionPane.showInputDialog("Insira nota do aluno: ");
     }
     
-    public static void setFreq() {
-        System.out.println("Insira frequencia do aluno: ");
+    public static String setFreq() {
+        return JOptionPane.showInputDialog("Insira frequencia do aluno: ");
     }
     
     public static void getFreq(Diario alu) {
@@ -26,6 +28,11 @@ public class MsgsDiario {
     
     public static void getNota(Diario alu) {
         System.out.println("A nota do aluno foi: " + alu.getNota() + " de 10.");
+    }
+    
+    public static void result(Diario alu) {
+        String result = (alu.getResult() ? "Reprovado" : "Aprovado");
+        JOptionPane.showMessageDialog(null, alu + result, result ,JOptionPane.PLAIN_MESSAGE);
     }
     
 }

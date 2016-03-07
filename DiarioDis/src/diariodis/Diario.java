@@ -29,7 +29,7 @@ public class Diario {
     
     // -- O metodo toString serve como "representacao" do objeto na forma de String
     public String toString() {
-        return String.format("Nota: %.2f\t Freq: %d", nota, freq);
+        return String.format("Nota: %.2f\nFreq: %d\n", nota, freq);
     }
     
     // -- Calcula conceito do aluno 
@@ -97,6 +97,7 @@ public class Diario {
         return conceito;
     }
     
+    /*
     // -- Metodo que mostra mensagem com tudo do aluno
     public void mostraMsg() {
         
@@ -111,5 +112,5 @@ public class Diario {
         
         System.out.printf("Nota: %.2f\t Frequencia: %d/60 aulas.\n", nota, freq);
     }
-    
+    */
 }

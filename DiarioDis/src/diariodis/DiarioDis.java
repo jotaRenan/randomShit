@@ -5,6 +5,8 @@
  */
 package diariodis;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Joao Pedro Rosa
@@ -21,17 +23,15 @@ public class DiarioDis {
         
         int x;
         double y;
-        
-        MsgsDiario.setFreq();
-        x = Integer.parseInt(scanner.nextLine());
+
+        x = Integer.parseInt(MsgsDiario.setFreq());
         gb.setFreq(x);
-        MsgsDiario.setNota();
-        y = Double.parseDouble(scanner.nextLine());
+        
+        y = Double.parseDouble(MsgsDiario.setNota());
         gb.setNota(y);
 
-        joaoP.mostraMsg();
-        gb.mostraMsg();
-        
+        MsgsDiario.result(gb);
+        MsgsDiario.result(joaoP);
     }
     
 }
