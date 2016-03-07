@@ -33,7 +33,7 @@ public class MsgsDiario {
     public static void result(Diario alu) {
         String result;
         // -- Exibe string com status (aprovado/reprovado) e o conceito.
-        result = ((alu.getResult() ? "Aprovado" : "Reprovado" ) + "\nConceito: " + alu.getConceito());
+        result = ((alu.getResult() ? "Aprovado " : "Reprovado " ) + "\nConceito: " + alu.getConceito());
         JOptionPane.showMessageDialog(null, alu + result, result ,JOptionPane.PLAIN_MESSAGE);
     }
     

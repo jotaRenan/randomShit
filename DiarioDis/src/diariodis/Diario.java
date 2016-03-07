@@ -35,23 +35,27 @@ public class Diario {
     
     // -- Calcula conceito do aluno 
     private void calcCon() {
-        if (nota >= 9.0 && nota <= 10.0) {
-            conceito = 'A';
-        } 
+        if (freq <45 )
+            conceito = 'F';
         else {
-            if ( nota >= 7.0 && nota <=8.9 ) {
-                conceito = 'B';
-            }
+            if (nota >= 9.0 && nota <= 10.0) {
+                conceito = 'A';
+            } 
             else {
-                if ( nota >= 5.0 && nota <= 6.9) {
-                    conceito = 'C';
+                if ( nota >= 7.0 && nota <=8.9 ) {
+                    conceito = 'B';
                 }
                 else {
-                    if (nota >= 4.5 && nota <= 4.9) {
-                        conceito = 'D';
+                    if ( nota >= 5.0 && nota <= 6.9) {
+                        conceito = 'C';
                     }
-                    else
-                        conceito = 'F';
+                    else {
+                        if (nota >= 4.5 && nota <= 4.9) {
+                            conceito = 'D';
+                        }
+                        else
+                            conceito = 'F';
+                    }
                 }
             }
         }
