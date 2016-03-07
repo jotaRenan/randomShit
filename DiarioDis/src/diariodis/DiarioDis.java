@@ -5,7 +5,6 @@
  */
 package diariodis;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,6 +16,7 @@ public class DiarioDis {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         Scanner scanner = new Scanner(System.in);
         Diario joaoP = new Diario(9, 45);
         Diario gb = new Diario();
@@ -24,14 +24,19 @@ public class DiarioDis {
         int x;
         double y;
 
+        // -- Recebe valores e manda pra classe
         x = Integer.parseInt(MsgsDiario.setFreq());
         gb.setFreq(x);
-        
         y = Double.parseDouble(MsgsDiario.setNota());
         gb.setNota(y);
-
+        
+        // -- Checa se objeto foi aprovado
+        gb.isAproved();
+        
+        // -- Exibe mensagens
         MsgsDiario.result(gb);
         MsgsDiario.result(joaoP);
+        
     }
     
 }

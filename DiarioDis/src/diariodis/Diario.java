@@ -25,6 +25,7 @@ public class Diario {
         this.nota = nota;
         this.freq = freq;
         calcCon();  // -- Chama metodo que calcula conceito
+        isAproved();
     }
     
     // -- O metodo toString serve como "representacao" do objeto na forma de String
@@ -57,7 +58,7 @@ public class Diario {
     }
     
     // -- Checa se o aluno foi aprovado e joga o resultado numa variavel
-    private boolean isAproved () {
+    public boolean isAproved () {
         result = (conceito < 'D' && freq >= 45);
         return result;
     }

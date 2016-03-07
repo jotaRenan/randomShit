@@ -23,15 +23,17 @@ public class MsgsDiario {
     }
     
     public static void getFreq(Diario alu) {
-        System.out.println("Frequencia do aluno foi: " + alu.getFreq() + "/60.");
+        JOptionPane.showMessageDialog(null, "Frequencia do aluno foi: " + alu.getFreq() + "/60.");
     }
     
     public static void getNota(Diario alu) {
-        System.out.println("A nota do aluno foi: " + alu.getNota() + " de 10.");
+        JOptionPane.showMessageDialog(null, "A nota do aluno foi: " + alu.getNota() + " de 10.");
     }
     
     public static void result(Diario alu) {
-        String result = (alu.getResult() ? "Reprovado" : "Aprovado");
+        String result;
+        // -- Exibe string com status (aprovado/reprovado) e o conceito.
+        result = ((alu.getResult() ? "Aprovado" : "Reprovado" ) + "\nConceito: " + alu.getConceito());
         JOptionPane.showMessageDialog(null, alu + result, result ,JOptionPane.PLAIN_MESSAGE);
     }
     
