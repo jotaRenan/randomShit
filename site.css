@@ -1,0 +1,21 @@
+#lateral {
+	background-color: yellow;
+	text-align: center;
+}
+
+#topo {
+	border: 1px solid black;
+	position: absolute;
+	top: 90px;
+}
+
+.todo {
+	background-color: white;
+}
+
+#menu {
+	background-color: yellow;
+	width: 20%;
+	height: 100%;
+	text-align: center;
+}
