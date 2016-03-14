@@ -10,10 +10,15 @@ import javax.swing.JOptionPane;
 public class MsgsPets {
     
     public static void showEst(PetHouse petHouse) {
+        double totalGato = petHouse.estadiaCat * petHouse.getAlCat();
+        double totalCao = petHouse.estadiaDog * petHouse.getAlDog();
+        
         JOptionPane.showMessageDialog(null, "Animal: Gato\n"
-                + petHouse.cat.toString() + "\n\nAnimal: Cachorro\n" 
-                + petHouse.dog.toString() 
-                + "\n\nEstadia: " + petHouse.getEstadia(),
+                + petHouse.catToString() + "\nEstadia: " + petHouse.getEstadiaCat() 
+                + "\nTotal comido: " + totalGato + "g"  
+                + "\n\nAnimal: Cachorro\n" + petHouse.dogToString() 
+                + "\nEstadia: " + petHouse.getEstadiaDog()
+                + "\nTotal comido: " + totalCao,
                 petHouse.getNome(), JOptionPane.PLAIN_MESSAGE); 
     }
     

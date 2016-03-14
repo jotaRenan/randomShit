@@ -28,7 +28,7 @@ public class Pets {
         Gato persa = new Gato("Satanzinho", "Miau666", 300);
         
         //--PetHouse com construtor gostosinho
-        PetHouse ferias = new PetHouse(bulldog, persa, "CaeseGatos", 5);
+        PetHouse ferias = new PetHouse(bulldog, 5, persa, 3, "CaeseGatos");
         
         //--Mensagem show com JOptionPane
         MsgsPets.showEst(ferias);

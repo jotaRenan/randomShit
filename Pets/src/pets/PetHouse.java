@@ -13,18 +13,21 @@ public class PetHouse {
     Gato cat;
     Cachorro dog;
     String nome;
-    int estadia;
+    int estadiaCat, estadiaDog;
 
     public PetHouse() {
         cat = new Gato();
         dog = new Cachorro();
     }
     
-    public PetHouse(Cachorro dog, Gato cat, String nome, int estadia) {
+    public PetHouse(Cachorro dog, int estadiaDog, Gato cat, int estadiaCat,
+            String nome) {
         this.dog = dog;
+        this.estadiaDog = estadiaDog;
         this.cat = cat;
+        this.estadiaCat = estadiaCat;
         this.nome = nome;
-        this.estadia = estadia;
+        
     }
     
     public String getNome() {
@@ -35,13 +38,21 @@ public class PetHouse {
         this.nome = nome;
     }
 
-    public int getEstadia() {
-        return estadia;
+    public int getEstadiaCat() {
+        return estadiaCat;
     }
 
-    public void setEstadia(int estadia) {
-        this.estadia = estadia;
-    }    
+    public void setEstadiaCat(int estadiaCat) {
+        this.estadiaCat = estadiaCat;
+    }
+
+    public int getEstadiaDog() {
+        return estadiaDog;
+    }
+
+    public void setEstadiaDog(int estadiaDog) {
+        this.estadiaDog = estadiaDog;
+    }
 
     public Gato getCat() {
         return cat;
@@ -58,5 +69,21 @@ public class PetHouse {
     public Cachorro getDog() {
         return dog;
     }
+    
+    public String dogToString() {
+        return dog.toString();
+    }
+    
+    public String catToString() {
+        return cat.toString();
+    }
 
+    public double getAlCat() {
+        return cat.getQtdAl();
+    }
+    
+    public double getAlDog() {
+        return dog.getQtdAl();
+    }
+    
 }
