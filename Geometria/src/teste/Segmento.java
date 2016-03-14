@@ -1,30 +1,30 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package teste;
+package geometria2;
 
 /**
  *
- * @author usuario
+ * @author aluno
  */
 public class Segmento {
-    
-    private double seg;
+    private double comp;
 
-    public Segmento() {}
-    
-    Segmento(double seg) {
-        this.seg = seg;
+    public Segmento(double comp) {
+        this.comp = comp;
+    }
+
+    Segmento() {
+        this.comp = 0;
     }
     
-    public void setSeg(double seg) {
-        this.seg = seg;
+    public double getComp() {
+        return comp;
     }
-    
-    public double getSeg() {
-        return seg;
+
+    public void setComp(double comp) {
+        this.comp = comp;
     }
     
 }

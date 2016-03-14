@@ -1,32 +1,34 @@
-package teste;
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package geometria2;
 
 /**
  *
- * @author usuario
+ * @author aluno
  */
-public class Geometria {
+public class Geometria2 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         
-        Segmento test = new Segmento(3);
-        Segmento test2 = new Segmento(4);
+        //--Segmento com construtor double
+        Segmento seg = new Segmento(3.0);
         
-        Retangulo ret = new Retangulo(test, test2);
-        //System.out.println(ret.area());
+        //--Retangulo com parametros double
+        Retangulo xy = new Retangulo(3, 4);
+        //--Retangulo com parametros Segmento
+        Retangulo ret = new Retangulo(seg, seg);
         
-        Paralelepipedo x = new Paralelepipedo(test2, ret);
+        //--Paralelepipedo com parametros double
+        Paralelepipedo x = new Paralelepipedo(3.0, 3.0, 3.0);
+        //-Paralelepipedo com parametros Retangulo e Segmento
+        Paralelepipedo y = new Paralelepipedo(xy, seg);
         
+        System.out.println(ret.area());
         
-        x.setLadoZ(test);
-        x.setRet(ret);
-        
-        System.out.println(x.getLadoZ());
-        System.out.println(x.getRet().area());
-        System.out.println(x.areaSup());
-        System.out.println(x.volume());
-    }    
+    }
 }
