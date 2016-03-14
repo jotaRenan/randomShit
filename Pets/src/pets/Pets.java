@@ -27,15 +27,18 @@ public class Pets {
         //--Gato com construtor gostosinho e cheio
         Gato persa = new Gato("Satanzinho", "Miau666", 300);
         
-        //--PetHouse com construtor nao tao gostosinho (tenho q mudar)
-        PetHouse ferias = new PetHouse(persa, "CaeseGatos", 3);
-        ferias.add(bulldog, "CaeseGatos", 5);
-        //--Esses construtores estao zoados ai em cima.. fica pra dps   
+        //--PetHouse com construtor gostosinho
+        PetHouse ferias = new PetHouse(bulldog, persa, "CaeseGatos", 5);
         
         //--Mensagem show com JOptionPane
         MsgsPets.showEst(ferias);
         
+        Gato deDeus = new Gato("Mingau", "miau", 300);
+        //--Mudando o gato q ta de ferias
+        ferias.setCat(deDeus);
         
+        //--Mensagem show com JOptionPane
+        MsgsPets.showEst(ferias);
     }
     
 }

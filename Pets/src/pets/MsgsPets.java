@@ -10,9 +10,9 @@ import javax.swing.JOptionPane;
 public class MsgsPets {
     
     public static void showEst(PetHouse petHouse) {
-        JOptionPane.showMessageDialog(null, "Animal: Gato\n" + 
-                petHouse.cat.toString() 
-                + "\n\nAnimal: Cachorro\n" + petHouse.dog.toString() 
+        JOptionPane.showMessageDialog(null, "Animal: Gato\n"
+                + petHouse.cat.toString() + "\n\nAnimal: Cachorro\n" 
+                + petHouse.dog.toString() 
                 + "\n\nEstadia: " + petHouse.getEstadia(),
                 petHouse.getNome(), JOptionPane.PLAIN_MESSAGE); 
     }

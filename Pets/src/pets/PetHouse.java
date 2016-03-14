@@ -20,26 +20,9 @@ public class PetHouse {
         dog = new Cachorro();
     }
     
-    public PetHouse(Cachorro dog, String nome, int estadia) {
+    public PetHouse(Cachorro dog, Gato cat, String nome, int estadia) {
         this.dog = dog;
-        this.nome = nome;
-        this.estadia = estadia;
-    }
-
-    public PetHouse(Gato cat, String nome, int estadia) {
         this.cat = cat;
-        this.nome = nome;
-        this.estadia = estadia;
-    }
-    
-    public void add(Gato cat, String nome, int estadia) {
-        this.cat = cat;
-        this.nome = nome;
-        this.estadia = estadia;
-    }
-    
-    public void add(Cachorro dog, String nome, int estadia) {
-        this.dog = dog;
         this.nome = nome;
         this.estadia = estadia;
     }
@@ -64,6 +47,14 @@ public class PetHouse {
         return cat;
     }
 
+    public void setCat(Gato cat) {
+        this.cat = cat;
+    }
+
+    public void setDog(Cachorro dog) {
+        this.dog = dog;
+    }
+    
     public Cachorro getDog() {
         return dog;
     }
