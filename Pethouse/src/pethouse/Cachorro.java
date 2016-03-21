@@ -28,5 +28,31 @@ public class Cachorro {
     public static double getRaçao() {
         return raçao;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getSom() {
+        return som;
+    }
+
+    public void setSom(String som) {
+        this.som = som;
+    }
+
+    public double getQtdAl() {
+        return qtdAl;
+    }
+
+    public void setQtdAl(double qtdAl) {
+        this.qtdAl = qtdAl;
+    }
+    
+    
     
 }

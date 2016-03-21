@@ -6,6 +6,7 @@
 package pethouse;
 
 import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,7 +25,7 @@ public class Hospedagem {
 
         Pethouse petshop = new Pethouse("Caes e cia", poodle, viraLata, alemao);
         DecimalFormat df = new DecimalFormat("#.###");        
-        System.out.println("Ração restante em "+ petshop.getNome() + ": " + df.format(petshop.simularDias(3)) + "kg.");
+        JOptionPane.showMessageDialog(null, "Ração restante em "+ petshop.getNome() + ": " + df.format(petshop.simularDias(3)) + "kg.");
         
         
     }
