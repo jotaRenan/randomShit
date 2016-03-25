@@ -5,6 +5,7 @@
  */
 package diariodis;
 import java.util.Scanner;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
@@ -53,9 +54,15 @@ public class DiarioDis {
         
         caixaSaida.setEditable(false);
         
-        JOptionPane.showMessageDialog(null,caixaSaida, "Resultado Final", JOptionPane.INFORMATION_MESSAGE);
+        //JOptionPane.showMessageDialog(null,caixaSaida, "Resultado Final", JOptionPane.INFORMATION_MESSAGE);
+        JFrame frame = new JFrame();
         
-        
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setTitle("Resultado Final");
+        frame.setSize(400, 200);
+        frame.setLocationRelativeTo(null);  // -- Codigo para centralizar
+        frame.add(caixaSaida);
+        frame.setVisible(true);
     }
     
 }
