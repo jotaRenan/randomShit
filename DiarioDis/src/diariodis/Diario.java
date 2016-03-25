@@ -15,13 +15,15 @@ public class Diario {
     private int freq; 
     private char conceito;
     private boolean result;
+    private String nome;
     
     // -- Construtor sem parametros
     Diario() {
     }
     
     // -- Construtor com parametros
-    Diario(double nota, int freq) {
+    Diario(String nome, double nota, int freq) {
+        this.nome = nome;
         this.nota = nota;
         this.freq = freq;
         calcCon();  // -- Chama metodo que calcula conceito
@@ -84,6 +86,14 @@ public class Diario {
     
     public void setConceito(char conceito) {
         this.conceito = conceito;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
     
     public double getFreq() {

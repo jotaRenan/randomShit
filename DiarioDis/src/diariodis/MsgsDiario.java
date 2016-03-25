@@ -37,4 +37,5 @@ public class MsgsDiario {
         JOptionPane.showMessageDialog(null, alu + result, result ,JOptionPane.PLAIN_MESSAGE);
     }
     
+    
 }

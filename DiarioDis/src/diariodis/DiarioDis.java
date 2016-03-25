@@ -5,6 +5,8 @@
  */
 package diariodis;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -18,7 +20,7 @@ public class DiarioDis {
     public static void main(String[] args) {
         
         Scanner scanner = new Scanner(System.in);
-        Diario joaoP = new Diario(9, 45);
+        Diario joaoP = new Diario("Joao Pedro", 9, 45);
         Diario gb = new Diario();
         
         int x;
@@ -30,12 +32,29 @@ public class DiarioDis {
         y = Double.parseDouble(MsgsDiario.setNota());
         gb.setNota(y);
         
+        gb.setNome("Gabriel Baiano");
+        
         // -- Checa se objeto foi aprovado
         gb.isAproved();
         
         // -- Exibe mensagens
         MsgsDiario.result(gb);
         MsgsDiario.result(joaoP);
+        
+        // -- Exibe mensagem com textArea
+        JTextArea caixaSaida = new JTextArea( 5, 20 );
+        caixaSaida.append("Aluno\tFrequencia\tConceito\tAprovado?\n");
+        
+        caixaSaida.append( joaoP.getNome() + '\t' + joaoP.getFreq() + '\t' +
+                joaoP.getConceito() + '\t' + joaoP.isAproved() + '\n');
+        
+        caixaSaida.append( gb.getNome() + '\t' + gb.getFreq() + 
+                '\t' + gb.getConceito() + '\t' + gb.isAproved() + '\n');
+        
+        caixaSaida.setEditable(false);
+        
+        JOptionPane.showMessageDialog(null,caixaSaida, "Resultado Final", JOptionPane.INFORMATION_MESSAGE);
+        
         
     }
     
