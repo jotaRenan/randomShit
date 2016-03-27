@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package diariodis;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Toolkit;
 import java.util.Scanner;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -27,6 +31,10 @@ public class DiarioDis {
         int x;
         double y;
 
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int height = screenSize.height;
+        int width = screenSize.width;
+        
         // -- Recebe valores e manda pra classe
         x = Integer.parseInt(MsgsDiario.setFreq());
         gb.setFreq(x);
@@ -54,14 +62,16 @@ public class DiarioDis {
         
         caixaSaida.setEditable(false);
         
+        caixaSaida.setFont(new Font("Arial", Font.PLAIN, 15));
+        
         //JOptionPane.showMessageDialog(null,caixaSaida, "Resultado Final", JOptionPane.INFORMATION_MESSAGE);
         JFrame frame = new JFrame();
-        
+                
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Resultado Final");
-        frame.setSize(400, 200);
+        frame.setSize(400, 150);
         frame.setLocationRelativeTo(null);  // -- Codigo para centralizar
-        frame.add(caixaSaida);
+        frame.add(caixaSaida, BorderLayout.CENTER);
         frame.setVisible(true);
     }
     
