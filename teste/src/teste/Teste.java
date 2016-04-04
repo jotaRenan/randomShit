@@ -5,12 +5,6 @@
  */
 package teste;
 
-import java.awt.GridLayout;
-import java.util.Scanner;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import static javax.swing.JFrame.EXIT_ON_CLOSE;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -70,16 +64,6 @@ public class Teste {
             msg = "\n\nCOMPRA CONFIRMADA";
             icone = JOptionPane.INFORMATION_MESSAGE;
         }
-        /*
-        JFrame frame = new JFrame(title);
-        frame.setLayout(new GridLayout(6, 15));
-        frame.add(new JLabel(" " + voo.getnVoo()));
-        frame.add(new JLabel(" " + voo.getPreço() + '\n'));
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-        frame.pack();
-        frame.setVisible(true);
-        */
         
         JOptionPane.showMessageDialog(null,
                 "Voo numero: " + voo.getnVoo()

@@ -17,8 +17,12 @@ public class Voo {
         this.nVoo = nVoo;
         this.tipo = tipo;
         this.preço = preço;
-        
-        switch(tipo) {
+        setCapacidade();
+        this.desocupados = this.capacidade; 
+    }
+    
+    private void setCapacidade() {
+        switch(this.tipo) {
             case 707:
                 this.capacidade = 10;
                 break;
@@ -29,7 +33,6 @@ public class Voo {
                 this.capacidade = 7;
                 break;
         }
-        this.desocupados = this.capacidade; 
     }
     
     public boolean isFull() {
@@ -50,6 +53,7 @@ public class Voo {
 
     public void setTipo(int tipo) {
         this.tipo = tipo;
+        setCapacidade();
     }
 
     public int getPreço() {
@@ -62,10 +66,6 @@ public class Voo {
 
     public int getCapacidade() {
         return capacidade;
-    }
-
-    public void setCapacidade(int capacidade) {
-        this.capacidade = capacidade;
     }
 
     public int getDesocupados() {
