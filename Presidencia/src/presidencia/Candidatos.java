@@ -8,7 +8,7 @@ package presidencia;
 
 /**
  *
- * @author usuario
+ * @author JOAO PEDRO RENAN UHULL
  */
 class Candidatos {
     private String nome;

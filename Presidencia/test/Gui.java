@@ -3,56 +3,59 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package presidencia;
 
+
+import presidencia.*;
+import java.awt.ComponentOrientation;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 /**
  *
- * @author JOAO PEDRO RENAN UHULLLL
+ * @author usuario
  */
-public class Gui extends JFrame {
-
-    private final JLabel titulo;
-    private final JButton b1, b2, b3, b4, b5, b6, bResult;
-    private final JPanel painel;
-    private final Candidatos[] candidatos;
-    private final Eleicao eleicao;
-
+public class Gui extends JFrame{
+    
+    private JLabel titulo;
+    private JButton b1, b2, b3, b4, b5, b6, bResult;
+    private JPanel painel;
+    private Candidatos[] candidatos;
+    private Eleicao eleicao;
+    
     public Gui(Eleicao eleicao) {
-
-        super("Votacao");
         
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(400, 400);
-        this.setLocationRelativeTo(null);
+        super("Votacao");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(400, 400);
+        
+        setLocationRelativeTo(null);
+        
         this.candidatos = eleicao.getCandidatos();
         this.eleicao = eleicao;
-
+        
         painel = new JPanel();
-        painel.setLayout(new GridLayout(3, 2));
-
-        titulo = new JLabel("Vote");
-        titulo.setFont(new Font("ARIAL", Font.BOLD, 15));
-
-        //--Cria handlers de evento especificos para cada candidato
+        painel.setLayout(new GridLayout(4, 3, 10, 10));
+        
+        titulo = new JLabel("Vote para PRESIDENTE");
+        titulo.setFont( new Font( "ARIAL", Font.BOLD, 22));
         
         HandlerClass c1 = new HandlerClass(candidatos[0]);
         b1 = new JButton(candidatos[0].getNome());
         b1.addActionListener(c1);
-
+        
         HandlerClass c2 = new HandlerClass(candidatos[1]);
         b2 = new JButton(candidatos[1].getNome());
         b2.addActionListener(c2);
-
+        
         HandlerClass c3 = new HandlerClass(candidatos[2]);
         b3 = new JButton(candidatos[2].getNome());
         b3.addActionListener(c3);
@@ -60,16 +63,14 @@ public class Gui extends JFrame {
         HandlerClass c4 = new HandlerClass(candidatos[3]);
         b4 = new JButton(candidatos[3].getNome());
         b4.addActionListener(c4);
-
-        //--Votos nulos e brancos nao fazem nada, essencialmente.
+        
         b5 = new JButton("Nulo");
         b6 = new JButton("Branco");
-
-        //--Declara JButton de resultado
+        
         Resultado eResult = new Resultado();
         bResult = new JButton("Resultado");
         bResult.addActionListener(eResult);
-
+        
         painel.add(titulo);
         painel.add(b1);
         painel.add(b2);
@@ -78,76 +79,56 @@ public class Gui extends JFrame {
         painel.add(b5);
         painel.add(b6);
         painel.add(bResult);
-
-        this.add(painel);
-        this.setVisible(true);
-
-    }
-
-    private class HandlerClass implements ActionListener {
-
-        private final Candidatos candidato;
         
+        add(painel);
+        
+        setVisible(true);
+        
+    }
+    
+    private class HandlerClass implements ActionListener{
+        
+        private Candidatos candidato;        
+
         public HandlerClass(Candidatos candidato) {
             this.candidato = candidato;
         }
-
-        @Override
+        
         public void actionPerformed(ActionEvent event) {
             candidato.vote();
+            System.out.println("Voce votou em: " + candidato.getNome());
+            System.out.println("Votos do candidato: " + candidato.getVotos());
         }
     }
-
+    
     private class Resultado implements ActionListener {
-
-        @Override
+        
         public void actionPerformed(ActionEvent event) {
-            //--Fecha a janela aberta
+            // --fecha a janela
             dispose();
-            //--Calcula resultado da eleicao
-            eleicao.calcRes();
             
-            JFrame frame;
-            frame = new JFrame("Resultado eleicoes presidenciais");
-            frame.setLayout(new GridLayout(2, 1));
+            eleicao.calcRes();
+            JFrame frame = new JFrame("Resultado eleicoes presidenciais");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(300, 300);
             frame.setLocationRelativeTo(null);
-
-            JTextArea resultado;
-            resultado = new JTextArea();
-            resultado.setEditable(false);
-            resultado.setSize(300, 200);
             
-            //--Calculos para resultado de eleicao
+            JTextArea resultado = new JTextArea();
+            resultado.setEditable(false);
+            resultado.setSize(300, 300);
             if (eleicao.getVencedor() != null) {
                 Candidatos vencedor = eleicao.getVencedor();
                 resultado.append("Vencedor: " + vencedor.getNome());
                 resultado.append("\nNmr de votos: " + vencedor.getVotos());
-            } else {
-                Candidatos[] segTurno = eleicao.getSegTurno();
-                resultado.append("Havera segundo turno!");
-                //--Exibe candidatos do 2o turno
-                for (int i = 0; i < 2; i++) {
-                    resultado.append("\n\nCandidato " + (i + 1) + ": " + segTurno[i].getNome());
-                    resultado.append("\nVotos: " + segTurno[i].getVotos());
-                }
             }
-
-            JButton sair;
-            sair = new JButton("Encerrar");
-            sair.setSize(100, 200);
-            sair.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    frame.dispose();
-                }
-            });
-
+            else {
+                resultado.append("Havera segundo ");
+            }
+            
             frame.add(resultado);
-            frame.add(sair);
             frame.setVisible(true);
-
+            
         }
     }
-
+    
 }
