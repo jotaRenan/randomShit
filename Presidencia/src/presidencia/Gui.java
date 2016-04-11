@@ -9,11 +9,20 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 /**
  *
@@ -30,7 +39,7 @@ public class Gui extends JFrame {
     public Gui(Eleicao eleicao) {
 
         super("Votacao");
-        
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(400, 400);
         this.setLocationRelativeTo(null);
@@ -44,7 +53,6 @@ public class Gui extends JFrame {
         titulo.setFont(new Font("ARIAL", Font.BOLD, 15));
 
         //--Cria handlers de evento especificos para cada candidato
-        
         HandlerClass c1 = new HandlerClass(candidatos[0]);
         b1 = new JButton(candidatos[0].getNome());
         b1.addActionListener(c1);
@@ -87,7 +95,7 @@ public class Gui extends JFrame {
     private class HandlerClass implements ActionListener {
 
         private final Candidatos candidato;
-        
+
         public HandlerClass(Candidatos candidato) {
             this.candidato = candidato;
         }
@@ -95,6 +103,15 @@ public class Gui extends JFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
             candidato.vote();
+            try {
+                tocaSom("C:\\Users\\Aluno\\Desktop\\randomShit-master\\Presidencia\\src\\presidencia\\barulho.wav");
+            } catch (UnsupportedAudioFileException ex) {
+                Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (LineUnavailableException ex) {
+                Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 
@@ -106,7 +123,7 @@ public class Gui extends JFrame {
             dispose();
             //--Calcula resultado da eleicao
             eleicao.calcRes();
-            
+
             JFrame frame;
             frame = new JFrame("Resultado eleicoes presidenciais");
             frame.setLayout(new GridLayout(2, 1));
@@ -118,7 +135,7 @@ public class Gui extends JFrame {
             resultado = new JTextArea();
             resultado.setEditable(false);
             resultado.setSize(300, 200);
-            
+
             //--Calculos para resultado de eleicao
             if (eleicao.getVencedor() != null) {
                 Candidatos vencedor = eleicao.getVencedor();
@@ -148,6 +165,15 @@ public class Gui extends JFrame {
             frame.setVisible(true);
 
         }
+    }
+
+    private static void tocaSom(String arquivoPath) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+
+        InputStream in = new FileInputStream(arquivoPath);
+
+        AudioStream audioStream = new AudioStream(in);
+        AudioPlayer.player.start(audioStream);
+
     }
 
 }
